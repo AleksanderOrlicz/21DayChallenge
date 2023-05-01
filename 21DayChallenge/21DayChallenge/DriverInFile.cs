@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace _21DayChallenge
 {
     internal class DriverInFile : DriverBase
     {
         private const string fileName = "Laps.txt";
+
+        public override event LapTimeAddedDelegate LapTimeAdded;
         public DriverInFile(string name, string surname) 
             : base(name, surname)
         {
@@ -24,7 +22,10 @@ namespace _21DayChallenge
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(lapTimeInTimeSpan);
-                    //event?
+                    if (LapTimeAdded != null)
+                    {
+                        LapTimeAdded(this, new EventArgs());
+                    }
                 }
             }
             else

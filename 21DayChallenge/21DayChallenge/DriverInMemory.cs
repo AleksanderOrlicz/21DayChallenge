@@ -2,12 +2,16 @@
 {
     public class DriverInMemory : DriverBase
     {
-        public List<TimeSpan> lapTimes = new List<TimeSpan>(); //zmienić na private
+        private List<TimeSpan> lapTimes = new List<TimeSpan>();
+
+        public override event LapTimeAddedDelegate LapTimeAdded;
         public DriverInMemory(string name, string surname) 
             : base(name, surname)
         {
         }
+
         
+
         public override void AddLapTime(string time)
         {
             string timeFormat = @"mm\:ss\.fff";
@@ -15,7 +19,11 @@
             
             if(TimeSpan.TryParseExact(time, timeFormat, null, out var lapTimeInTimeSpan))
             {                
-                this.lapTimes.Add(lapTimeInTimeSpan); 
+                this.lapTimes.Add(lapTimeInTimeSpan);
+                if(LapTimeAdded != null)
+                {
+                    LapTimeAdded(this, new EventArgs());
+                }
             }
             else
             {

@@ -9,6 +9,8 @@ namespace _21DayChallenge
 
         void AddLapTime(string time);
 
+        event LapTimeAddedDelegate LapTimeAdded;
+
         Statistics GetStatistics();
     }
 }
