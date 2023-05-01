@@ -3,14 +3,6 @@ using _21DayChallenge;
 using System.Runtime.CompilerServices;
 
 Console.ForegroundColor = ConsoleColor.White;
-//string lapTime = "1:43.834";
-//string lapTime2 = "1:3.8";
-//string lapTime3 = "aaa1:44";
-
-//string czas = "1:43.2";
-//string timeFormat = @"mm\:ss\.fff";
-//timeFormatting(czas);
-//Console.WriteLine(czas);
 
 bool CloseApp = false;
 
@@ -29,8 +21,7 @@ while (!CloseApp)
     switch(method.ToUpper())
     {
         case "M":
-            AddLapsToMemory();
-            CloseApp = true;
+            AddLapsToMemory();            
             break;
         case "F":
             AddLapsToFile();
@@ -42,6 +33,7 @@ while (!CloseApp)
             Console.WriteLine("Wrong character try one more time!");
             continue;
     }
+    CloseApp = true;
 }
 
 static void AddLapsToFile()
@@ -89,7 +81,7 @@ static void EnterLapTime(IDriver driver)
 {
     while (true)
     {
-        Console.WriteLine("Podaj czas okrążenia: ");
+        Console.WriteLine("Podaj czas okrążenia: [MM:SS.fff]");
         var input = Console.ReadLine();
         if (input.ToUpper() == "Q")
         {
@@ -120,13 +112,6 @@ static void EnterLapTime(IDriver driver)
 
 
 }
-
-
-
-
-
-
-
 
 static void StatisticsToConsole(IDriver driver)
 {
