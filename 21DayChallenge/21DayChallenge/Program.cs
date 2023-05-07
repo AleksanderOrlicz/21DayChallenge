@@ -7,7 +7,6 @@ internal class Program
 
         bool CloseApp = false;
 
-
         Console.WriteLine("======================================================");
         Console.WriteLine("Witaj w aplikacji sprawdzającej Twoje czasy okrążenia");
 
