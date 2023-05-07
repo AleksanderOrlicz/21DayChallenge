@@ -12,7 +12,6 @@ namespace _21DayChallenge.Tests
 
             driver.AddLapTime("1:44.5");
             driver.AddLapTime("1:43.5");
-
             
             var result = driver.GetStatistics();
 

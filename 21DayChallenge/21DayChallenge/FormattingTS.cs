@@ -1,6 +1,4 @@
-﻿
-
-namespace _21DayChallenge
+﻿namespace _21DayChallenge
 {
     public static class FormattingTS
     {
@@ -34,8 +32,7 @@ namespace _21DayChallenge
                     thousands = parts2[1];
                 }
                 finalTime = min.PadLeft(2, '0') + ":" + sec.PadLeft(2, '0') + "." + thousands.PadRight(3, '0');
-            }                           
-                       
+            }         
             return finalTime;
         }
 
@@ -44,7 +41,6 @@ namespace _21DayChallenge
         {
             string timeFormat = "mm\\:ss\\.fff";
             return timeSpan.ToString(timeFormat);
-
         }
     }
 }

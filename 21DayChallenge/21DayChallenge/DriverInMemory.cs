@@ -10,8 +10,6 @@
         {
         }
 
-        
-
         public override void AddLapTime(string time)
         {
             string timeFormat = @"mm\:ss\.fff";
@@ -45,9 +43,5 @@
             }
             return statistics;
         }
-
-
-
-        
     }
 }
